@@ -4,7 +4,7 @@ Build RAG using Local LLM
 
 ## Vanila RAG Architecture
 
-![image](data/vanila-rag.png)
+![image](data/vanilla-rag.png)
 
 ## Adaptive RAG Archtecture
 
