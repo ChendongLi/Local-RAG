@@ -11,9 +11,6 @@ def get_hf_embeddings():
     return embeddings
 
 
-embeddings = HuggingFaceEmbeddings()
-
-
 if __name__ == '__main__':
     embeddings = get_hf_embeddings()
 
