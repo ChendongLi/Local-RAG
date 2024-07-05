@@ -1,6 +1,6 @@
 # Local-RAG
 
-Build RAG using Local LLM
+Build RAG using Local Llama-cpp and Qdrant in Disk
 
 ## Vanilla RAG Architecture
 
@@ -30,4 +30,16 @@ Local-RAG
 │       │   rag.py
 │   └───agent
 └───utils
+```
+
+## Install
+
+```
+pip install -r requirements.txt
+```
+
+## Usage / Getting started
+
+```
+python3 main.py
 ```
