@@ -17,6 +17,7 @@ Local-RAG
 │   README.md
 │   requirements.txt
 │   .gitignore
+│   main.py
 └───_documentation (one time or manually operation)
 │   │   README.md
 └───config
@@ -30,6 +31,9 @@ Local-RAG
 │       │   rag.py
 │   └───agent
 └───utils
+│   │   emb.py
+│   │   llm.py
+│   │   vector_db.py
 ```
 
 ## Install
