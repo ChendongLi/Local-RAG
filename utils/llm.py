@@ -1,3 +1,4 @@
+import yaml
 from langchain_community.llms import LlamaCpp
 from langchain.memory import ConversationBufferMemory
 from langchain_experimental.chat_models import Llama2Chat
@@ -11,6 +12,11 @@ from langchain_core.prompts.chat import (
     HumanMessagePromptTemplate,
     MessagesPlaceholder,
 )
+
+with open('config/config.yaml', 'r') as file:
+    config = yaml.safe_load(file)
+
+LLAMA_MODEL_PATH = config['vanila_rag']['llama_cpp_model_path']
 
 
 class RagOutputParser(BaseModel):
@@ -54,7 +60,7 @@ def get_llama():
     #     format_instructions=output_parser.get_format_instructions())
 
     llm = LlamaCpp(
-        model_path="./models/llama-2-7b-chat.Q5_K_M.gguf",
+        model_path=LLAMA_MODEL_PATH,
         temperature=0,
         max_tokens=2000,
         top_p=1,

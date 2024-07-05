@@ -1,0 +1,4 @@
+vanila_rag:
+  pdf_file_path: data/achilles-tendon-rupture.pdf
+  llama_cpp_model_path: models/llama-2-7b-chat.Q5_K_M.gguf
+  qdrant_disk_path: models/local_qdrant

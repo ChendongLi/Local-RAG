@@ -1,12 +1,19 @@
+import yaml
 from utils.emb import get_hf_embeddings
 from utils.vector_db import create_qdrant_db, get_qdrant_db
 from src.preprocessing.doc_preprocessing import document_process
 from utils.llm import get_llama
 
 
+with open('config/config.yaml', 'r') as file:
+    config = yaml.safe_load(file)
+
+PDF_FILE_PATH = config['vanila_rag']['pdf_file_path']
+
+
 def vanila_rag(question: str, create_db: False):
     # split document
-    docs = document_process(file_path="data/achilles-tendon-rupture.pdf")
+    docs = document_process(file_path=PDF_FILE_PATH)
 
     # create vectorDB
     if create_db:
