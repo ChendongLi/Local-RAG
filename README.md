@@ -47,3 +47,8 @@ pip install -r requirements.txt
 ```
 python3 main.py
 ```
+
+## Next Step
+
+- Structure RAG Output
+- Build self-correct RAG agent
