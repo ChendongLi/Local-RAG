@@ -1,9 +1,12 @@
 import yaml
 from langchain_community.llms import LlamaCpp
+from langchain_community.chat_models import ChatLlamaCpp
+from langchain_community.chat_models import ChatOllama
+from langchain_experimental.llms.ollama_functions import OllamaFunctions
 from langchain.memory import ConversationBufferMemory
 from langchain_experimental.chat_models import Llama2Chat
 from langchain_core.messages import SystemMessage
-from langchain_core.output_parsers import JsonOutputParser, SimpleJsonOutputParser, PydanticOutputParser
+from langchain_core.output_parsers import JsonOutputParser, SimpleJsonOutputParser, PydanticOutputParser, StrOutputParser
 from langchain_core.pydantic_v1 import BaseModel, Field
 from langchain_core.prompts import PromptTemplate
 from langchain_core.prompts.chat import (
@@ -32,6 +35,46 @@ class ConversationalResponse(BaseModel):
 
     response: str = Field(
         default=None, description="A conversational response to the user's query")
+
+
+def ollam_f():
+    OllamaFunctions
+    llm = OllamaFunctions(
+        model="llama3",
+        temperature=0,
+        top_p=1,
+        keep_alive=-1,
+        format="json"
+    )
+    return llm
+
+
+def ollama():
+    """
+    llama 3 from ollama
+    """
+    llm = ChatOllama(model="llama3", temperature=0,
+                     top_p=1, stop=["<|eot_id|>"])
+
+    return llm
+
+
+def chat_llama_cpp():
+    """
+    llama cpp
+    """
+    llm = ChatLlamaCpp(
+        model_path=LLAMA_MODEL_PATH,
+        temperature=0,
+        n_ctx=2000,
+        max_tokens=1000,
+        top_p=1,
+        n_gpu_layers=-1,
+        n_batch=512,
+        verbose=False
+    )
+
+    return llm
 
 
 def get_llama():

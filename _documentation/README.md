@@ -30,3 +30,26 @@ https://huggingface.co/TheBloke/CodeLlama-7B-GGUF/blob/main/codellama-7b.Q4_0.gg
 ```
 save gguf model under folder models/
 ```
+
+## ollama installation
+
+ollama is optimized version of llama cpp. Easy to install and fast response
+refer to this [doc](https://github.com/ollama/ollama?tab=readme-ov-file)
+
+(1) downlaod ollam
+(2) run the following command to install llama3
+
+```
+ollama pull llama3
+```
+
+(3) run the ollama in python3
+
+```
+from langchain_community.chat_models import ChatOllama
+def ollama():
+    llm = ChatOllama(model="llama3")
+    print(llm.invoke("Who is US president?"))
+```
+
+(4) [comparsion](https://picovoice.ai/blog/local-llms-llamacpp-ollama/) between llama_cpp with ollama
